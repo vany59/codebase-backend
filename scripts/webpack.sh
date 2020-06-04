@@ -1,0 +1,1 @@
+rimraf dist && webpack --mode development --config webpack.config.js

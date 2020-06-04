@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2018",
+    "lib": ["es2018", "esnext.asynciterable"],
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "baseUrl": "./",
+    "paths": {
+      "@environments": ["src/environments"],
+      "@logger": ["src/configs/logger"],
+      "@apolloServer": ["src/configs/apolloServer"],
+      "@services": ["src/services"],
+      "@resolvers": ["src/resolvers"],
+      "@models": ["src/models"]
+    }
+  },
+  "exclude": ["node_module", "dist"]
+}
