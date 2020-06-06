@@ -9,21 +9,14 @@ import * as resolvers from "@resolvers";
 import { PORT, DOMAIN, END_POINT } from "@environments";
 import { logger } from "@logger";
 
-export const ResolveTime = async ({ info }, next) => {
-  const start = Date.now();
-  await next();
-  const resolveTime = Date.now() - start;
-  console.log(`${info.parentType.name}.${info.fieldName} [${resolveTime} ms]`);
-};
-
 const server = async (app, httpServer) => {
   const allResolvers = Object.values(resolvers);
   const schema = await buildSchema({
     resolvers: [...allResolvers],
-    globalMiddlewares: [ResolveTime],
   });
   const apolloServer = new ApolloServer({
     schema,
+    subscriptions: true,
     context: ({ req }) => {
       return { req };
     },

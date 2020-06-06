@@ -5,9 +5,6 @@ import {
   Mutation,
   PubSub,
   Root,
-  createMethodDecorator,
-  createParamDecorator,
-  UseMiddleware,
 } from "type-graphql";
 import * as uuid from "uuid";
 
