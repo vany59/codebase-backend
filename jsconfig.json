@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es2018",
+    "target": "es6",
     "lib": ["es2018", "esnext.asynciterable"],
     "sourceMap": true,
     "experimentalDecorators": true,
@@ -13,7 +13,8 @@
       "@apolloServer": ["src/configs/apolloServer"],
       "@services": ["src/services"],
       "@resolvers": ["src/resolvers"],
-      "@models": ["src/models"]
+      "@models": ["src/models"],
+      "@middlewares": ["src/middlewares"]
     }
   },
   "exclude": ["node_module", "dist"]

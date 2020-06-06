@@ -44,6 +44,7 @@ module.exports = {
       "@resolvers": path.resolve(__dirname, "./src/resolvers"),
       "@models": path.resolve(__dirname, "./src/models"),
       "@services": path.resolve(__dirname, "./src/services"),
+      "@middlewares": path.resolve(__dirname, "./src/middlewares"),
     },
     extensions: [".ts", ".js"],
   },

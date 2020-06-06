@@ -8,12 +8,12 @@ import { getConnection } from "typeorm";
 
 import { logger } from "@logger";
 import { PORT, DOMAIN, END_POINT, RATE_LIMIT_MAX } from "@environments";
-import apolloServer from "@apolloServer";
+import { server as apolloServer } from "@apolloServer";
 import typeormDb from "./configs/typeorm";
 
 const main = async () => {
   try {
-    //hot module
+    // hot module
     if (module.hot) {
       module.hot.accept();
       module.hot.dispose(async () => {
@@ -38,15 +38,15 @@ const main = async () => {
       })
     );
 
-    const server = new http.Server(app);
-    apolloServer(app);
-    server.listen(PORT, () =>
-      logger.info(
-        `🚀 Server ready at http://${DOMAIN}:${chalk
-          .hex("#bae7ff")
-          .bold(PORT)}/${END_POINT}`
-      )
-    );
+    const server = new http.createServer(app);
+    apolloServer(app, server);
+    // server.listen(PORT, async () => {
+    //   logger.info(
+    //     `🚀 Server ready at http://${DOMAIN}:${chalk
+    //       .hex("#bae7ff")
+    //       .bold(PORT)}/${END_POINT}`
+    //   );
+    // });
 
     typeormDb();
   } catch (error) {
